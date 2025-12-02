@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int n;
+    int esPrimo = 1; // 1 = verdadero, 0 = falso
+
+    printf("Ingresa un número: ");
+    if (scanf("%d", &n) != 1) {
+        printf("Entrada inválida.\n");
+        return 1;
+    }
+
+    if (n <= 1) {
+        printf("Este número no es primo\n");
+        return 0;
+    }
+
+    // Solo comprobar hasta la raíz cuadrada de n
+    int limite = (int) sqrt((double)n);
+    for (int i = 2; i <= limite; i++) {
+        if (n % i == 0) {
+            esPrimo = 0;
+            break;
+        }
+    }
+
+    if (esPrimo) {
+        printf("Este número es primo\n");
+    } else {
+        printf("Este número no es primo\n");
+    }
+
+    return 0;
+}
